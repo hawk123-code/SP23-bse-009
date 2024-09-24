@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unsticthed_Nishat</title>
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        .imp{
+            display: flex;
+            justify-content: center;
+        }
+        .dropdown {
+           width: 10%;
+        }
+
+        .dropdown-button {
+            padding: 10px;
+            background-color: #f6f9f6;
+            color: rgb(10, 10, 10);
+            border: none;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        .dropdown-button .icon {
+            margin-left: 10px;
+        }
+
+        #dropdownSearch {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+        }
+
+        #dropdownItems {
+            display: none;
+            position: absolute;
+            background-color: #f1f1f1;
+            width: 20%;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            max-height: 200px;
+            overflow-y: auto;
+
+        }
+
+        .dropdown-item {
+            color: black;
+            padding: 8px 16px;
+            text-decoration: none;
+            display: block;
+            cursor: pointer;
+        }
+
+        .dropdown-item:hover {
+            background-color: #ddd;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div id="div_1" >
+            <div>
+        <a href="index1.html" >
+            <img src="logo.png" alt="nishat_logo">
+        </a>
+    </div>
+    <div  id="div_icon">
+        <a href=""><i class="fas fa-envelope icon"></i></a>
+        <a href=""><i class="fas fa-home"></i></a>
+        <a href=""><i class="fas fa-search icon"></i></a>
+        <a href=""><i class="fas fa-shopping-cart icon"></i></a>
+    </div>
+    </div>
+        <hr style="width: 100%;">
+        <ul class="nav_main">
+            <li><a href="">NEW IN</a>
+            <ul class="dropdown">
+                <li><h2>NEW ARRIVALS</h2></li>
+                <hr>
+                <li><a href="unsticthed.html">UN-STITCHED</a></li>
+                <li><a href="#">FREEDOM TO BUY</a></li>
+                <li><a href="#">PRET</a></li>
+                <li><a href="#">LUXARY</a></li>
+                <img style="margin-top: 2%;" src="navbar.webp" alt="">
+            </ul></li> 
+            <li><a href="">WOMEN</a>
+                <ul class="dropdown">
+                    <li><h2>WOMEN</h2></li>
+                <hr>
+                    <li><a href="#">PRINTED</a></li>
+                    <li><a href="#">EMBROIDERY</a></li>
+                    <li><a href="#">ANY DAY</a></li>
+                    <li><a href="#">CO-ORDS</a></li>
+                    <img style="margin: 2%;" src="navbar1.webp" alt="">
+                </ul></li>
+            <li><a href="">LUXARY</a>
+                <ul class="dropdown">
+                    <li><h2>LUXARY PRET</h2></li>
+                <hr>
+                    <li><a href="#">WEDDING</a></li>
+                    <li><a href="#">EID UL ADHA</a></li>
+                    <li><a href="#">FESTIVE</a></li>
+                    <li><a href="#">TRADITIONAL</a></li>
+                    <img style="margin: 2%;" src="navbar2.webp" alt="">
+                </ul></li>
+            <li><a href="">MEN</a>
+                <ul class="dropdown">
+                    <li><h2>MEN</h2></li>
+                <hr>
+                    <li><a href="#">STITCHED</a></li>
+                    <li><a href="#">UN-STITCHED</a></li>
+                    <li><a href="#">EID UL ADHA</a></li>
+                    <li><a href="#">TRADITIONAL</a></li>
+                    <img style="margin: 2%;" src="navbar3.webp" alt="">
+                </ul></li>
+            <li><a href="">HOME</a>
+                <ul class="dropdown">
+                    <li><h2>INTERIOR</h2></li>
+                <hr>
+                    <li><a href="#">BED SHEETS</a></li>
+                    <li><a href="#">BRIDAL SETS</a></li>
+                    <li><a href="#">COMFORTERS</a></li>
+                    <li><a href="#">BABY COT SETS</a></li>
+                    <img style="margin: 2%;" src="navbar4.webp" alt="">
+                </ul></li>
+            <li><a href="">ACCESSORIES</a>
+                <ul class="dropdown">
+                    <li><h2>ADDITIONALS</h2></li>
+                <hr>
+                    <li><a href="#">HAND BAGS</a></li>
+                    <li><a href="#">CLUTCHES</a></li>
+                    <li><a href="#">BAGPACKS</a></li>
+                    <li><a href="#">PERFUMES</a></li>
+                    <img style="margin: 2%;" src="navbar5.webp" alt="">
+                </ul></li>
+            <li><a id="li_1" href="">SUMMER SALE</a></li>
+        </ul>
+    
+    </nav>
+
+    <div class="imp">
+        <div class="dropdown">
+            <button class="dropdown-button"
+                    onclick="toggleDropdown()">Select Country▼
+    
+            </button>
+            <div id="dropdownItems">
+                <input type="text" 
+                       id="dropdownSearch" 
+                       placeholder="Search...">
+                <div class="dropdown-item"><a href="">Afghanistan</a></div>
+                <div class="dropdown-item">Albania</div>
+                <div class="dropdown-item">Algeria</div>
+                <div class="dropdown-item">Andorra</div>
+                <div class="dropdown-item">Angola</div>
+                <div class="dropdown-item">Argentina</div>
+                <div class="dropdown-item">Armenia</div>
+                <div class="dropdown-item">Australia</div>
+                <div class="dropdown-item">Austria</div>
+                <div class="dropdown-item">Azerbaijan</div>
+                <div class="dropdown-item">Bahamas</div>
+                <div class="dropdown-item">Bahrain</div>
+                <div class="dropdown-item">Bangladesh</div>
+                <div class="dropdown-item">Barbados</div>
+                <div class="dropdown-item">Belarus</div>
+                <div class="dropdown-item">Cabo Verde</div>
+                <div class="dropdown-item">Cambodia</div>
+                <div class="dropdown-item">Cameroon</div>
+                <div class="dropdown-item">Chad</div>
+                <div class="dropdown-item">Chile</div>
+                <div class="dropdown-item">China</div>
+                <div class="dropdown-item">Colombia</div>
+                <div class="dropdown-item">India</div>
+    
+            </div>
+        </div>
+    </div>
+
+
+    <footer style="background-color: rgb(236, 238, 239);">
+        <div> 
+            <ul>
+            <h1>Contact Us</h1>
+            <li>21 Km Ferozpur Road Lahore Pakistan.</li>
+            <li>nishatonline@nishatmills.com</li>
+            <li>+92 (0)42 3810 3311</li>
+        </ul>
+
+        </div>
+        <div>
+            <ul>
+            <h1>Information</h1>
+            <a href=""><li>Blogs</li></a>
+            <a href=""><li>About Us</li></a>
+            <a href=""><li>Privacy Policy</li></a>
+            <a href=""><li>Terms and Conditions</li></a>
+        </ul>
+        </div>
+        <div>
+            <ul>
+            <h1>Customer Service</h1>
+            <a href=""><li>FAQs</li></a>
+            <a href=""><li>Order Tracking</li></a>
+            <a href=""><li>Store Locator</li></a>
+        </ul>
+        </div>
+        <div class="search">
+            <h1>Newsletter Signup</h1>
+            <div class="search-container">
+                <form action="/search" method="get">
+                    <input type="text" name="query" class="search-bar" placeholder="Search...">
+                    <button type="submit" class="search-button">Search</button>
+                </form>
+            </div>
+        </div>
+        
+    </footer>
+
+
+</body>
+</html>
