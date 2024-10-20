@@ -18,7 +18,7 @@ function handleResponse(data) {
     storiesList.append(
       `<div class="mb-3">
             <h3>${story.title}</h3>
-            <div>${story.body}</div>  <!-- 'body' instead of 'content' -->
+            <div>${story.body}</div>  
             <div>
                 <button class="btn btn-info btn-sm mr-2 btn-edit" data-id="${story.id}">Edit</button>
                 <button class="btn btn-danger btn-sm mr-2 btn-del" data-id="${story.id}">Delete</button>
@@ -35,7 +35,6 @@ function deleteStory() {
     url: "https://jsonplaceholder.typicode.com/posts/" + storyId,
     method: "DELETE",
     success: function () {
-      // Remove the story from the list immediately after deletion
       $(`[data-id='${storyId}']`).closest('.mb-3').remove();
     },
     error: function (error) {
@@ -51,13 +50,11 @@ function handleFormSubmission(event) {
   var content = $("#createContent").val();
 
   if (storyId) {
-    // Update the story
     $.ajax({
       url: "https://jsonplaceholder.typicode.com/posts/" + storyId,
       method: "PUT",
       data: { title, body: content },  
       success: function () {
-        // Update the story in the list
         $(`#storiesList [data-id='${storyId}']`).closest('.mb-3').replaceWith(
           `<div class="mb-3">
               <h3>${title}</h3>
@@ -69,20 +66,18 @@ function handleFormSubmission(event) {
           </div>
           <hr />`
         );
-        clearForm(); // Clear the form after update
+        clearForm(); 
       },
       error: function (error) {
         console.error("Error updating story:", error);
       },
     });
   } else {
-    // Create a new story
     $.ajax({
       url: "https://jsonplaceholder.typicode.com/posts",
       method: "POST",
       data: { title, body: content },  
       success: function (data) {
-        // Add the new story to the list
         $("#storiesList").prepend(
           `<div class="mb-3">
               <h3>${title}</h3>
@@ -94,7 +89,7 @@ function handleFormSubmission(event) {
           </div>
           <hr />`
         );
-        clearForm(); // Clear the form after creation
+        clearForm(); 
       },
       error: function (error) {
         console.error("Error creating story:", error);
@@ -123,7 +118,6 @@ function editBtnClicked(event) {
   });
 }
 
-// Clear the form and reset buttons
 function clearForm() {
   $("#clearBtn").hide();
   $("#createBtn").removeAttr("data-id");
@@ -138,10 +132,8 @@ $(document).ready(function () {
   $(document).on("click", ".btn-del", deleteStory);
   $(document).on("click", ".btn-edit", editBtnClicked);
 
-  // Create Form Submission
   $("#createForm").submit(handleFormSubmission);
 
-  // Clear form button
   $("#clearBtn").on("click", function (e) {
     e.preventDefault();
     clearForm();
