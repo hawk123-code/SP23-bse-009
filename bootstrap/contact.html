@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.0/mdb.min.css" />
+<style>
+    span{
+        font:bold;
+        color: red;
+        display: none;
+    }
+    body{
+        background-image: url(output-onlinepngtools\ \(2\).png);
+       
+    }
+</style>
+</head>
+<body style="overflow-x: hidden;">
+    
+    <form style="margin-top: 2%;" id="gform" onsubmit="handleaction(event)" action="https://www.google.com">
+        <!-- 2 column grid layout with text inputs for the first and last names -->
+        <div class="row mb-4">
+          <div class="col">
+            <div data-mdb-input-init class="form-outline">
+              <input type="text" id="form6Example1" class="form-control" style="width: 80%;" />
+              <span class="message1">First name is required</span>
+              <label class="form-label" for="form6Example1">First name</label>
+            </div>
+          </div>
+          
+          <div class="col">
+            <div data-mdb-input-init class="form-outline">
+              <input type="text" id="form6Example2" class="form-control" style="width: 80%;" />
+              <span class="message2">Last name is required</span>
+              <label class="form-label" for="form6Example2">Last name</label>
+            </div>
+          </div>
+        </div>
+      
+        <!-- Text input -->
+        <div data-mdb-input-init class="form-outline mb-4">
+          <input type="text" id="form6Example3" class="form-control" style="width: 80%;" />
+          <span class="message3">Company name is required</span>
+          <label class="form-label" for="form6Example3">Company name</label>
+        </div>
+      
+        <!-- Text input -->
+        <div data-mdb-input-init class="form-outline mb-4">
+          <input type="text" id="form6Example4" class="form-control" style="width: 80%;" />
+          <span class="message4">Address is required</span>
+          <label class="form-label" for="form6Example4">Address</label>
+        </div>
+      
+        <!-- Email input -->
+        <div data-mdb-input-init class="form-outline mb-4">
+          <input type="email" id="form6Example5" class="form-control" style="width: 80%;" />
+          <span class="message5">Email is required</span>
+          <label class="form-label" for="form6Example5">Email</label>
+        </div>
+      
+        <!-- Number input -->
+        <div data-mdb-input-init class="form-outline mb-4">
+          <input type="number" id="form6Example6" class="form-control" style="width: 80%;" />
+          <span class="message6">Phone is required</span>
+          <label class="form-label" for="form6Example6">Phone</label>
+        </div>
+      
+        <!-- Message input -->
+        <div data-mdb-input-init class="form-outline mb-4">
+          <textarea class="form-control" id="form6Example7" rows="4" style="width: 80%;"></textarea>
+          <span class="message7">text is required</span>
+          <label class="form-label" for="form6Example7">Additional information</label>
+        </div>
+      
+        <!-- Checkbox -->
+        <div class="form-check d-flex justify-content-center mb-4">
+          <input
+            class="form-check-input me-2"
+            type="checkbox"
+            value=""
+            id="form6Example8"
+            checked
+          />
+          <label class="form-check-label" for="form6Example8"> Create an account? </label>
+        </div>
+      
+        <!-- Submit button -->
+        <button data-mdb-ripple-init type="submit" class="btn btn-primary btn-block mb-4" style="width: 40%;margin-left: 30%;">Place order</button>
+        <script>
+
+        </script>
+      </form>
+      <script>
+       function handleaction(event){
+            event.preventDefault();
+            var input=document.getElementsByClassName("form-control")
+            let boolean=[]
+            for(var i=0;i<input.length;i++){
+                if(input[i].value){
+                    console.log("valid form")
+                    boolean.push(true)
+                }else{
+                    console.log("invalid form")
+                    boolean.push(false)
+                }
+            }
+            for (var i = 0; i < boolean.length; i++) {
+                let variable = document.getElementsByClassName(`message${i + 1}`);
+                if (boolean[i] == false) {
+                    variable[0].style.display = "inline"; 
+                } else {
+                    variable[0].style.display = "none"; 
+                }
+            }
+        }
+       
+      </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.0/mdb.min.js"></script>
+</body>
+</html>
