@@ -1,0 +1,37 @@
+<form method="POST" action="" enctype="multipart/form-data">
+  <div class="mb-3">
+   <select name="category" id="">
+    <% for(let i=0;i<selection.length;i++){ %>
+      <option value="<%-selection[i].category%>"><%-selection[i].category%></option>
+      <%}%>
+    </select>
+  </div>
+
+  
+  <div class="mb-3">
+    <label for="name" class="form-label">Product Name</label>
+    <input type="text" class="form-control" id="name" name="product" required>
+  </div>
+
+  <div class="mb-3">
+    <label for="price" class="form-label">Price</label>
+    <input type="number" class="form-control" id="price" name="price" required>
+  </div>
+
+  <div class="mb-3">
+    <label for="description" class="form-label">Description</label>
+    <input type="text" class="form-control" id="description" name="description" required>
+  </div>
+
+  <div class="mb-3">
+    <label for="quantity" class="form-label">Quantity</label>
+    <input type="number" class="form-control" id="quantity" name="quantity" required>
+  </div>
+  
+  <div class="mb-3">
+    <label for="">Picture </label>
+    <input name="file" type="file" class="form-control" value="5000"/>
+</div>
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>

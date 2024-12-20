@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Findings</title>
+    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f4f6f9;
+        }
+        .product-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin-bottom: 20px;
+        }
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .card-img-top {
+            height: 250px;
+            object-fit: cover;
+        }
+        .findings-container {
+            padding-top: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container findings-container">
+        <div class="row">
+            <div class="col-12">
+                <h1 class="text-center mb-4">Product Findings</h1>
+            </div>
+        </div>
+
+        <div class="row" id="products-container">
+            <% if (findings.length === 0) { %>
+                <div class="col-12 text-center">
+                    <p class="alert alert-info">No products found.</p>
+                </div>
+            <% } else { %>
+                <% findings.forEach(product => { %>
+                    <div class="col-md-4">
+                        <div class="card product-card">
+                            <img class="card-img-top" src="<%= product.picture %>" alt="<%= product.name %>">
+                            <div class="card-body">
+                                <h5 class="card-title"><%= product.product %></h5>
+                                <p class="card-text text-muted"><%= product.description %></p>
+                                <p class="card-text h4 text-primary">
+                                    <strong>PKR <%= product.price.toLocaleString() %></strong>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                <% }); %>
+            <% } %>
+        </div>
+
+        <div class="text-center mt-4">
+            <a href="/" class="btn btn-outline-secondary">
+                <i class="bi bi-arrow-left me-2"></i>Back To Home
+            </a>
+        </div>
+    </div>
+
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
