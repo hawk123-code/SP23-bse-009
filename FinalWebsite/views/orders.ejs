@@ -22,7 +22,8 @@
                 <table class="table table-bordered table-hover">
                     <thead class="table-dark">
                         <tr>
-                            <th>Items</th>
+                            <th>#</th>
+                            <th>Order Items</th>
                             <th>Total Amount</th>
                             <th>Created At</th>
                         </tr>
@@ -31,6 +32,18 @@
                         <% findings.forEach((order, index) => { %>
                             <tr>
                                 <td><%= index + 1 %></td>
+                                <td>
+                                    <ul>
+                                        <% order.items.forEach((item) => { %>
+                                            <li>
+                                                <strong>Product:</strong> <%= item.productName %> <br>
+                                                <strong>Quantity:</strong> <%= item.quantity %> <br>
+                                                <strong>Price:</strong> $<%= item.price.toFixed(2) %> <br>
+                                                <strong>Total:</strong> $<%= item.total.toFixed(2) %>
+                                            </li>
+                                        <% }) %>
+                                    </ul>
+                                </td>
                                 <td class="text-end">$<%= order.totalAmount.toFixed(2) %></td>
                                 <td><%= new Date(order.createdAt).toLocaleDateString() %></td>
                             </tr>
