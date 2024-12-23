@@ -185,7 +185,7 @@ app.post("/confirm-order", async (req, res) => {
 
 
   const newOrder = new Order({
-    orderItems: orderDetails,
+    items: orderDetails,
     totalAmount,
     orderDate: new Date(),
     user: req.user ? req.user._id : null, 
