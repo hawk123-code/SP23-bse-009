@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Category Filter</title>
+    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f4f6f9;
+        }
+        .filter-container {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            padding: 30px;
+            margin-top: 50px;
+        }
+        .unique-categories {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-8 col-lg-6">
+                <div class="filter-container">
+                    <h2 class="text-center mb-4">Category Filter</h2>
+                    <form action="" method="post">
+                        <div class="mb-3">
+                            <label for="categorySelect" class="form-label">Select Category</label>
+                            <select 
+                                name="category" 
+                                id="categorySelect" 
+                                class="form-select"
+                            >
+                                <% 
+                                // Create a Set to get unique categories
+                                const uniqueCategories = [...new Set(findings.map(item => item.category))];
+                                
+                                // Iterate over unique categories
+                                uniqueCategories.forEach(category => { 
+                                %>
+                                    <option value="<%= category %>"><%= category %></option>
+                                <% }); %>
+                            </select>
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary">
+                                <i class="bi bi-funnel me-2"></i>Filter Categories
+                            </button>
+                        </div>
+                    </form>
+                    
+                    <div class="mt-4 text-center">
+                        <h5>Available Categories:</h5>
+                        <div class="unique-categories justify-content-center">
+                            <% uniqueCategories.forEach(category => { %>
+                                <span class="badge bg-secondary"><%= category %></span>
+                            <% }); %>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
